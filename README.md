@@ -33,7 +33,7 @@ Here is an overview of the missions, related to SAP Health Data Services for FHI
 
 ## Requirements
 
-To start with the setup of SAP Health Data Services for FHIR (Beta), you must have completed the prerequisites in [Initial Setup](https://help.sap.com/docs/SAP_HEALTH_DATA_SERVICES_FOR_FHIR/f64d5f2b858042f791b64bdd4094df22/872ceb743a38498bb960b916de6cde5d.html?locale=en-US).
+To start with the setup of SAP Health Data Services for FHIR (Beta), you must have completed the prerequisites in [Initial Setup](https://help.sap.com/docs/SAP_HEALTH_DATA_SERVICES_FOR_FHIR/f64d5f2b858042f791b64bdd4094df22/872ceb743a38498bb960b916de6cde5d.html?locale=en-US). The mission will guide you through this process.
 
 ## Download and Installation
 
