@@ -43,7 +43,7 @@ No known issues.
 
 ## How to obtain support
 
-You can report an incident or error through the [SAP Support Portal](https://support.sap.com/en/index.html). Please use the respective component for your incident, as described in the [documentationn](https://help.sap.com/docs/SAP_HEALTH_DATA_SERVICES_FOR_FHIR/f64d5f2b858042f791b64bdd4094df22/2fe94484269e487ea72a35befbe0a02b.html?locale=en-US).
+You can report an incident or error through the [SAP Support Portal](https://support.sap.com/en/index.html). Please use the respective component for your incident, as described in the [documentation](https://help.sap.com/docs/SAP_HEALTH_DATA_SERVICES_FOR_FHIR/f64d5f2b858042f791b64bdd4094df22/2fe94484269e487ea72a35befbe0a02b.html?locale=en-US).
 When submitting the incident, we recommend you to include the following information:
 -	Landscape information (for example, EU10)
 -	The URL of the page where the incident or error occurs
