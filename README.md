@@ -1,4 +1,5 @@
 # SAP-samples/repository-template
+
 This default template for SAP Samples repositories includes files for README, LICENSE, and .reuse/dep5. All repositories on github.com/SAP-samples will be created based on this template.
 
 # Containing Files
@@ -12,7 +13,7 @@ The [Reuse Tool](https://reuse.software/) must be used for your samples project.
 3. The README.md file (this file):
 Please edit this file as it is the primary description file for your project. You can find some placeholder titles for sections below.
 
-# [Title]
+# SAP Task Center - SAP Discovery Center Missions and Reusable Content
 <!-- Please include descriptive title -->
 
 <!--- Register repository https://api.reuse.software/register, then add REUSE badge:
@@ -22,15 +23,35 @@ Please edit this file as it is the primary description file for your project. Yo
 ## Description
 <!-- Please include SEO-friendly description -->
 
+This repository provides an overview of the released and planned SAP Health Data Services for FHIR missions, and includes content that can be reused by them.
+
+Here is an overview of the missions, related to SAP Health Data Services for FHIR:
+* Build a healthcare app with SAP Health Data Services for FHIR (beta - not for productive use) (link to SAP Discovery Center mission)
+
+### SAP BTP Solution Diagram
+
+<img src="docs/pics/btp_health_data_services_mission.png" width="750">
+
 ## Requirements
+
+To start with the setup of SAP Health Data Services for FHIR (Beta), you must have completed the prerequisites in [Initial Setup](https://help.sap.com/docs/SAP_HEALTH_DATA_SERVICES_FOR_FHIR/f64d5f2b858042f791b64bdd4094df22/872ceb743a38498bb960b916de6cde5d.html?locale=en-US).
 
 ## Download and Installation
 
 ## Known Issues
-<!-- You may simply state "No known issues. -->
+
+No known issues.
 
 ## How to obtain support
-[Create an issue](https://github.com/SAP-samples/<repository-name>/issues) in this repository if you find a bug or have questions about the content.
+
+You can report an incident or error through the [SAP Support Portal](https://support.sap.com/en/index.html). Please use the respective component for your incident, as described in the [documentationn](https://help.sap.com/docs/SAP_HEALTH_DATA_SERVICES_FOR_FHIR/f64d5f2b858042f791b64bdd4094df22/2fe94484269e487ea72a35befbe0a02b.html?locale=en-US).
+When submitting the incident, we recommend you to include the following information:
+-	Landscape information (for example, EU10)
+-	The URL of the page where the incident or error occurs
+-	The steps or clicks used to replicate the error
+-	Screenshots, videos, or the code entered
+
+[Create an issue](https://github.com/SAP-samples/health-data-services-mission/issues) in this repository if you find a bug or have questions about the content.
  
 For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
 
