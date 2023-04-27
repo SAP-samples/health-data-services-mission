@@ -1,0 +1,6 @@
+
+mission-patient-list/approuter/node_modules/**
+**/node_modules/**
+*.package-lock.json
+mission-patient-list/approuter/package-lock.json
+mission-patient-list/apps/patientlistwithapplyrules/dist/**

@@ -1,0 +1,119 @@
+_schema-version: "3.1.0"
+ID: sap-health-example-mission
+description: SAP Health Example for Mission
+version: 1.0.0
+parameters:
+  suffix: default
+  deploy_mode: html5-repo
+  domain: ${default-domain}
+  enable-parallel-deployments: true
+  UI_HOST: ${space}
+  UI_DOMAIN: ${domain}
+
+modules:
+  - name: sap-health-example-mission-approuter
+    type: approuter.nodejs
+    path: approuter
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+      domain: ${default-domain}
+      keep-existing-routes: true
+      routes:
+        - route: ${UI_HOST}.${UI_DOMAIN}
+    parameters-metadata:
+      domain:
+        overwritable: true
+    properties:
+      UI_HOST: ${UI_HOST}
+      UI_DOMAIN: ${UI_DOMAIN}
+      TENANT_HOST_PATTERN: "^(.*)-${UI_HOST}.${UI_DOMAIN}"
+    requires:
+      - name: sap-health-example-mission-html5-rt
+      - name: sap-health-example-mission-uaa
+      - name: sap-health-example-mission-portal
+      - name: sap-health-example-mission-hdsf
+
+  - name: sap-health-example-mission
+    type: com.sap.application.content
+    deployed-after: [sap-health-example-mission-ui-deployer]
+    path: flp
+    parameters:
+      config:
+        TENANT_HOST_PATTERN: "^(.*)-${UI_HOST}.${UI_DOMAIN}"
+    parameters-metadata:
+      config:
+        overwritable: true
+    requires:
+      - name: sap-health-example-mission-portal
+        parameters:
+          content-target: true
+          service-key:
+            name: content-deploy-key #Any valid name can be specified, will be used to create the service key for content deployment
+            config: #The service key configs can be defined inline
+              content-endpoint: developer
+      - name: sap-health-example-mission-uaa
+      - name: sap-health-example-mission-apphost
+
+  - name: sap-health-example-mission-ui-deployer
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: sap-health-example-mission-apphost
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - name: patientlistwithapplyrules
+          artifacts:
+            - com.sap.health.example.mission.patientlist.zip
+          target-path: resources/
+
+  - name: patientlistwithapplyrules
+    type: html5
+    path: apps/patientlistwithapplyrules
+    build-parameters:
+      builder: custom
+      commands:
+        - npm install
+        - npm run build
+      supported-platforms: []
+      build-result: dist
+
+resources:
+  - name: sap-health-example-mission-uaa
+    type: com.sap.xs.uaa
+    parameters:
+      service-name: sap-health-example-mission-uaa
+      service: xsuaa
+      service-plan: broker
+      shared: true
+      path: security/xs-security.json
+      config:
+        xsappname: sap-health-example-mission-${space}
+
+  - name: sap-health-example-mission-portal
+    parameters:
+      service-plan: standard
+      service: portal
+    type: org.cloudfoundry.managed-service
+
+  - name: sap-health-example-mission-html5-rt
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+
+  - name: sap-health-example-mission-apphost
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+      config:
+        sizeLimit: 10
+    type: org.cloudfoundry.managed-service
+
+  - name: sap-health-example-mission-hdsf
+    type: org.cloudfoundry.existing-service
+
+

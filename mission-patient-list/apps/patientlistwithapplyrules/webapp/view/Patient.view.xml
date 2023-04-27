@@ -1,0 +1,93 @@
+<mvc:View controllerName="com.sap.health.example.mission.patientlist.controller.Patient"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:vm="sap.ui.comp.variants"
+	xmlns:f="sap.f">
+	<Page id="patientsPage" showHeader="false" showNavButton="false" enableScrolling="true" class="sapUiContentPadding sapUiResponsivePadding--content">
+		<content>
+			<f:DynamicPage id="dynamicPageId" headerExpanded="true">
+				<f:title>
+					<f:DynamicPageTitle>
+						<f:heading>
+							<vm:VariantManagement standardItemText="Standard" class="sapUiSizeCompact">
+									</vm:VariantManagement>
+						</f:heading>
+					</f:DynamicPageTitle>
+				</f:title>
+				<f:header>
+					<f:DynamicPageHeader>
+						<f:content>
+							<fb:FilterBar id="filterBar" showClearOnFB="true" clear="onClear" search="onSearch" useToolbar="false" showGoOnFB="true">
+								<fb:filterGroupItems>
+									<!-- <fb:FilterGroupItem groupName="patients" name="Search" visibleInFilterBar="true">
+										<fb:control>
+											<SearchField id="Search" liveChange="onSearch" width="25%" label="{i18n>department}"/>
+										</fb:control>
+									</fb:FilterGroupItem> -->
+									<fb:FilterGroupItem groupName="patients" name="ID" label="{i18n>patientId}" visibleInFilterBar="true">
+										<fb:control>
+											<Select id="patientID" forceSelection="false" items="{client>/patientIDs}">
+												<core:Item key="{client>id}" text="{client>id}"/>
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>
+									<fb:FilterGroupItem groupName="patients" name="Gender" label="{i18n>gender}" visibleInFilterBar="true">
+										<fb:control>
+											<Select id="gender" forceSelection="false" items="{path : '/ValueSet/Gender', parameters: { request: { url: 'http://hl7.org/fhir/ValueSet/administrative-gender'}}}">
+												<core:Item key="{code}" text="{display}"/>
+											</Select>
+										</fb:control>
+									</fb:FilterGroupItem>
+								</fb:filterGroupItems>
+							</fb:FilterBar>
+						</f:content>
+					</f:DynamicPageHeader>
+				</f:header>
+				<f:content>
+					<Table id="patientListTable" enableBusyIndicator="true" growing="true" growingThreshold="15" growingScrollToLoad="true">
+						<headerToolbar>
+							<OverflowToolbar>
+								<Title id="patientCount" text="{i18n>patientsCount}"/>
+								<ToolbarSpacer/>
+								<Select id="ruleSets" items="{client>/ruleSets}" selectedKey="{client>/selectedRuleVersion}" forceSelection="false" >
+									<core:Item key="{client>version}" text="{client>version}"/>
+								</Select>
+								<Button id="applyRuleBtn" icon="sap-icon://synchronize" tooltip= "{i18n>applyRules}" type="Transparent" press="onApplyRules" ariaLabelledBy="actionButtonLabel"/>
+							</OverflowToolbar>
+						</headerToolbar>
+						<columns>
+							<Column id="patientId" hAlign="Left"  width="20%">
+								<Text text="{i18n>patientId}" />
+							</Column>
+							<Column id="patientName" hAlign="Left"  width="20%">
+								<Text text="{i18n>patientName}" />
+							</Column>
+							<Column id="patientGender" hAlign="Left" demandPopin="true" minScreenWidth="Tablet" width="10%">
+								<Text text="{i18n>patientGender}" />
+							</Column>
+							<Column id="patientBirthDate" hAlign="Left" demandPopin="true" minScreenWidth="Tablet" width="10%">
+								<Text text="{i18n>patientBirthDate}" />
+							</Column>
+							<Column id="patientNationality" hAlign="Left"  width="20%" visible="false">
+								<Text text="{i18n>patientNationality}" />
+							</Column>
+						</columns>
+						<!-- <items>
+					<ColumnListItem type="Inactive" id="patientColListItem">
+						<cells>
+							<Text text="{name/0/family} {name/0/given/0}" />
+							<Text text="{gender}" />
+							<Text text="{path:'birthDate', formatter:'.formatter.formatDate'}" />
+							<Text text="{path:'extension', formatter:'.formatter.formatNationalityExtension'}" />
+						</cells>
+					</ColumnListItem>
+				</items> -->
+					</Table>
+				</f:content>
+				<f:footer/>
+			</f:DynamicPage>
+		</content>
+	</Page>
+</mvc:View>
