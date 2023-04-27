@@ -1,0 +1,41 @@
+{
+   "tenant-mode":"shared",
+   "scopes":[
+      {
+         "name":"$XSAPPNAME.Callback",
+         "description":"With this scope set, the callbacks for tenant onboarding, offboarding and getDependencies can be called.",
+         "grant-as-authority-to-apps":[
+            "$XSAPPNAME(application,sap-provisioning,tenant-onboarding)"
+         ]
+      },
+      {
+         "name":"uaa.user",
+         "description":"This scope is used for token exchange"
+      }
+   ],
+   "authorities":[
+      "$XSAPPNAME.Callback"
+   ],
+   "oauth2-configuration": {
+      "redirect-uris": [
+         "https://*.cfapps.eu10.hana.ondemand.com/**",
+         "https://*.cfapps.eu10-004.hana.ondemand.com/**"
+      ]
+   },
+   "role-templates":[
+      {
+         "name":"MultitenancyCallbackRoleTemplate",
+         "description":"Call callback-services of applications",
+         "scope-references":[
+            "$XSAPPNAME.Callback"
+         ]
+      },
+      {
+         "name":"UserRoleTemplate",
+         "description":"For token exchange",
+         "scope-references":[
+            "uaa.user"
+         ]
+      }
+   ]
+}

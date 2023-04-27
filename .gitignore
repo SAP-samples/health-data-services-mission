@@ -4,3 +4,5 @@ mission-patient-list/approuter/node_modules/**
 *.package-lock.json
 mission-patient-list/approuter/package-lock.json
 mission-patient-list/apps/patientlistwithapplyrules/dist/**
+mission-patient-list/apps/patientlistwithapplyrules/package-lock.json
+*.zip
