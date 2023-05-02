@@ -32,7 +32,7 @@ modules:
       - name: sap-health-example-mission-html5-rt
       - name: sap-health-example-mission-uaa
       - name: sap-health-example-mission-portal
-      - name: sap-health-example-mission-hdsf
+      - name: new-health
 
   - name: sap-health-example-mission
     type: com.sap.application.content
@@ -113,7 +113,7 @@ resources:
         sizeLimit: 10
     type: org.cloudfoundry.managed-service
 
-  - name: sap-health-example-mission-hdsf
+  - name: new-health
     type: org.cloudfoundry.existing-service
 
 
