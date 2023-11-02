@@ -87,7 +87,7 @@ sap.ui.define([
 								"version": entry.resource.version,
 								"url": entry.resource.url
 							};
-							if (entry.resource.url == '1.0.0') {
+							if (entry.resource.version == '1.0.0') {
 								oRuleVersionData.isRuleBasedonExtendedPatient = false;
 							} else {
 								oRuleVersionData.isRuleBasedonExtendedPatient = true;
@@ -108,7 +108,7 @@ sap.ui.define([
 					}
 					that.oClientModel.setProperty("/ruleSets", aData);
 					if (aData.length > 0) {
-						that.oClientModel.setProperty("/selectedRuleVersion", aData[aData.length - 1].version);
+						that.oClientModel.setProperty("/selectedRuleVersion", '1.0.0');
 						that.getView().byId('ruleSets').setModel(that.oClientModel, 'client');
 						that.onApplyRules();
 						that.getView().byId('filterBar').setShowClearOnFB(true);
