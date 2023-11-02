@@ -1,7 +1,7 @@
 _schema-version: "3.1.0"
 ID: sap-health-example-mission
 description: SAP Health Example for Mission
-version: 2.1.0
+version: 3.0.0
 parameters:
   suffix: default
   deploy_mode: html5-repo
