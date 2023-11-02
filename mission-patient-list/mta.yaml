@@ -31,29 +31,7 @@ modules:
     requires:
       - name: sap-health-example-mission-html5-rt
       - name: sap-health-example-mission-uaa
-      - name: sap-health-example-mission-portal
       - name: new-health
-
-  - name: sap-health-example-mission
-    type: com.sap.application.content
-    deployed-after: [sap-health-example-mission-ui-deployer]
-    path: flp
-    parameters:
-      config:
-        TENANT_HOST_PATTERN: "^(.*)-${UI_HOST}.${UI_DOMAIN}"
-    parameters-metadata:
-      config:
-        overwritable: true
-    requires:
-      - name: sap-health-example-mission-portal
-        parameters:
-          content-target: true
-          service-key:
-            name: content-deploy-key #Any valid name can be specified, will be used to create the service key for content deployment
-            config: #The service key configs can be defined inline
-              content-endpoint: developer
-      - name: sap-health-example-mission-uaa
-      - name: sap-health-example-mission-apphost
 
   - name: sap-health-example-mission-ui-deployer
     type: com.sap.application.content
@@ -65,14 +43,14 @@ modules:
     build-parameters:
       build-result: resources
       requires:
-        - name: patientlistwithapplyrules
+        - name: patientlist
           artifacts:
             - com.sap.health.example.mission.patientlist.zip
           target-path: resources/
 
-  - name: patientlistwithapplyrules
+  - name: patientlist
     type: html5
-    path: apps/patientlistwithapplyrules
+    path: apps/patientlist
     build-parameters:
       builder: custom
       commands:
@@ -92,12 +70,6 @@ resources:
       path: security/xs-security.json
       config:
         xsappname: sap-health-example-mission-${space}
-
-  - name: sap-health-example-mission-portal
-    parameters:
-      service-plan: standard
-      service: portal
-    type: org.cloudfoundry.managed-service
 
   - name: sap-health-example-mission-html5-rt
     parameters:
