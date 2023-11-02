@@ -1,0 +1,96 @@
+<mvc:View controllerName="com.sap.health.example.mission.patientlist.controller.PatientDetail"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:vm="sap.ui.comp.variants"
+	xmlns:f="sap.ui.layout.form">
+	<Page id="patientDetailPage"  title="{i18n>patientDetails}" showNavButton="false" enableScrolling="false">
+		<f:SimpleForm id="generalForm"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="{i18n>general}"
+			labelSpanXL="4"
+			labelSpanL="4"
+			labelSpanM="4"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="1"
+			emptySpanL="1"
+			emptySpanM="1"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="{i18n>patientName}" />
+				<Text text="{name/0/family} {name/0/given/0}" />
+				<Label text="{i18n>patientBirthDate}" />
+				<Text text="{path:'birthDate', formatter:'.formatter.formatDate'}" />
+				<Label text="{i18n>patientGender}" />
+				<Text text="{gender}" />
+				<Label text="{i18n>patientNumber}" />
+				<Text text="{identifier/[use=official]/value}" />
+			</f:content>
+		</f:SimpleForm>
+		<f:SimpleForm id="addressForm"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="{i18n>address}"
+			labelSpanXL="4"
+			labelSpanL="4"
+			labelSpanM="4"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="1"
+			emptySpanL="1"
+			emptySpanM="1"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="{i18n>line}" />
+				<Text text="{path:'address/[use=home]/line',formatter:'.formatter.formatAddressLine'}" />
+				<Label text="{i18n>district}" />
+				<Text text="{address/[use=home]/district}" />
+				<Label text="{i18n>city}" />
+				<Text text="{address/[use=home]/city}" />
+				<Label text="{i18n>state}" />
+				<Text text="{address/[use=home]/state}" />
+				<Label text="{i18n>zipCode}" />
+				<Text text="{address/[use=home]/postalCode}" />
+			</f:content>
+		</f:SimpleForm>
+		<f:SimpleForm id="contactForm"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="{i18n>contact}"
+			labelSpanXL="4"
+			labelSpanL="4"
+			labelSpanM="4"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="1"
+			emptySpanL="1"
+			emptySpanM="1"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="{i18n>homePhone}" />
+				<Text text="{telecom/[use=home&amp;&amp;system=phone]/value}" />
+				<Label text="{i18n>mobilePhone}" />
+				<Text text="{telecom/[use=mobile&amp;&amp;system=phone]/value}" />
+				<Label text="{i18n>workPhone}" />
+				<Text text="{telecom/[use=work&amp;&amp;system=phone]/value}" />
+				<Label text="{i18n>email}" />
+				<Text text="{telecom/[system=email]/value}" />
+			</f:content>
+		</f:SimpleForm>
+	</Page>
+</mvc:View>
