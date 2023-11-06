@@ -25,6 +25,6 @@ All of these preqrquistes are part of the GET STARTED and BUILD phases of the mi
 ### Deployment 
 
 1. `mbt build`
-2. `cf bg-deploy mta_archives/sap-health-example-mission_1.0.0.mtar -f --no-confirm `
+2. `cf bg-deploy mta_archives/sap-health-example-mission_3.0.0.mtar -f --no-confirm `
 3. This is one time activity 
 `cf map-route sap-health-example-mission-approuter-<blue/green> cfapps.eu10.hana.ondemand.com -n <sub-domain>-<host>`

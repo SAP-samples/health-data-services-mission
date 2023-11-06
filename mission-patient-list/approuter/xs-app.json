@@ -26,5 +26,5 @@
       "authenticationType": "xsuaa"
     }
   ],
-  "welcomeFile": "/com.sap.health.example.mission.patientlist"
+  "welcomeFile": "/comsaphealthexamplemissionpatientlist"
 }
