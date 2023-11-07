@@ -10,6 +10,7 @@ All of these preqrquistes are part of the GET STARTED and BUILD phases of the mi
 2. Cloud Foundry Subaccount should have the following entitlements
     1. SAP Health Data Services for FHIR (standard plan)
     2. Cloud Foundry Runtime Memory
+    3. Authorization and Trust Management (xsuaa - broker plan)
 3. CloudFoundry [CLI](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html) should be installed in the local system
 4. [MTA Build Tool](https://sap.github.io/cloud-mta-build-tool/) should be installed in the local system
 5. Create SAP Health Data Services for FHIR Instance with the name  `new-health` with unique namespace
