@@ -1,4 +1,4 @@
-# SAP Health Data Services for FHIR (Beta) - SAP Discovery Center Missions and Reusable Content
+# SAP Health Data Services for FHIR - SAP Discovery Center Missions and Reusable Content
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/health-data-services-mission)](https://api.reuse.software/info/github.com/SAP-samples/health-data-services-mission)
 
@@ -7,7 +7,7 @@
 This repository provides an overview of the released and planned SAP Health Data Services for FHIR missions, and includes content that can be reused by them.
 
 Here is an overview of the missions, related to SAP Health Data Services for FHIR:
-* Build a healthcare app with SAP Health Data Services for FHIR (beta - not for productive use) (link to SAP Discovery Center mission)
+* Get Started with SAP Health Data Services for FHIR
 
 ### SAP BTP Solution Diagram
 
