@@ -57,7 +57,7 @@ Sample:
 
 The data source URI can be absolute/relative. 
 <br>
-In case of the sample app the data source URI is relative. This is then transformed into an absoulte URL by a node-js middleware know as [approuter](https://help.sap.com/docs/btp/sap-business-technology-platform/application-router). 
+In case of the sample app the data source URI is relative. This is then transformed into an absoulte URL by a node-js middleware known as [approuter](https://help.sap.com/docs/btp/sap-business-technology-platform/application-router). 
 <br>
 You can find more details on the working of approuter and the interaction to any business services endpoint [here](https://blogs.sap.com/2020/04/03/sap-application-router/).
 
