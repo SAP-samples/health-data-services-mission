@@ -25,12 +25,14 @@ sap.ui.define(["sap/ui/core/format/DateFormat"],
 				return "";
 			},
 
-			formatNationalityExtension: function (aExtension) {
-				if (aExtension && aExtension.length > 0) {
-					var oBirthDateExt = aExtension.find(function (oExt) {
-						return oExt.url === 'http://hl7.org/fhir/StructureDefinition/patient-birthPlace';
-					});
-					return oBirthDateExt && oBirthDateExt.valueAddress && oBirthDateExt.valueAddress.country ? oBirthDateExt.valueAddress.country : ""
+			/**
+			 * formats a address line into single string ex. "January 5, 2011"
+			 * @returns {string} The formatted version of aLines.
+			 * @param {array} aLine A string compatible with the constructor of Date.
+			 */
+			formatAddressLine: function (aLine) {
+				if (aLine && aLine.length>0) {
+					return aLine.join(", ") 
 				}
 				return "";
 			},

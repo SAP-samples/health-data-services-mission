@@ -19,18 +19,6 @@
          "fhir": {
             "uri": "/core",
             "type": "FHIR"
-         },
-         "hapi": {
-            "uri": "http://hapi.fhir.org/baseR5",
-            "type": "FHIR"
-         },
-         "fhirmeta": {
-            "uri": "/meta",
-            "type": "FHIR"
-         },
-         "fhirrule": {
-            "uri": "/rule",
-            "type": "FHIR"
          }
       },
       "crossNavigation": {
@@ -115,44 +103,6 @@
                   }
                }
             }
-         },
-         "meta": {
-            "type": "sap.fhir.model.r4.FHIRModel",
-            "dataSource": "fhirmeta",
-            "settings": {
-               "x-csrf-token": true,
-               "filtering": {
-                  "complex": false
-               },
-               "defaultSubmitMode": "Direct",
-               "groupProperties": {
-                  "batch": {
-                     "submit": "Batch"
-                  },
-                  "transaction": {
-                     "submit": "Transaction"
-                  }
-               }
-            }
-         },
-         "rule": {
-            "type": "sap.fhir.model.r4.FHIRModel",
-            "dataSource": "fhirrule",
-            "settings": {
-               "x-csrf-token": true,
-               "filtering": {
-                  "complex": false
-               },
-               "defaultSubmitMode": "Direct",
-               "groupProperties": {
-                  "batch": {
-                     "submit": "Batch"
-                  },
-                  "transaction": {
-                     "submit": "Transaction"
-                  }
-               }
-            }
          }
       },
       "resources": {
@@ -178,6 +128,14 @@
                "target": [
                   "PatientList"
                ]
+            },
+            {
+               "name": "detail",
+               "pattern": "{id}",
+               "target": [
+                  "PatientList",
+                  "PatientDetail"
+               ]
             }
          ],
          "targets": {
@@ -187,7 +145,19 @@
                "clearControlAggregation": false,
                "viewId": "Patient",
                "viewName": "Patient",
-               "viewLevel": 1
+               "viewLevel": 1,
+               "controlAggregation": "masterPages",
+					"level": 0
+            },
+            "PatientDetail": {
+               "viewType": "XML",
+               "transition": "slide",
+               "clearControlAggregation": false,
+               "viewId": "PatientDetail",
+               "viewName": "PatientDetail",
+               "viewLevel": 2,
+               "controlAggregation": "detailPages",
+               "level": 1
             }
          }
       }

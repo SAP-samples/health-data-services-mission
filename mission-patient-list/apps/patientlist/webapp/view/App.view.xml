@@ -4,5 +4,6 @@
           xmlns="sap.m"
           controllerName="com.sap.health.example.mission.patientlist.controller.App"
           xmlns:html="http://www.w3.org/1999/xhtml">
-    <App id="app" />
+	<SplitApp id="app">
+	</SplitApp>
 </mvc:View>

@@ -20,54 +20,11 @@
       "authenticationType": "xsuaa"
     },
     {
-      "source": "^/meta(.*)$",
-      "target": "$1",
-      "service": "com.sap.health.fs",
-      "endpoint": "conformanceservice",
-      "httpMethods":["POST","OPTIONS","GET"]
-    },
-    {
-      "source": "^/meta(.*)$",
-      "target": "$1",
-      "service": "com.sap.health.fs",
-      "endpoint": "conformanceservice",
-      "httpMethods": [
-        "POST",
-        "OPTIONS",
-        "GET"
-      ]
-    },
-    {
-      "source": "/meta/(.*)$",
-      "target": "$1",
-      "service": "com.sap.health.fs",
-      "endpoint": "conformanceservice",
-      "authenticationType": "xsuaa"
-    },
-    {
-      "source": "^/rule(.*)$",
-      "target": "$1",
-      "service": "com.sap.health.fs",
-      "endpoint": "rulesservice",
-      "httpMethods": [
-        "POST",
-        "OPTIONS",
-        "GET"
-      ]
-    },
-    {
-      "source": "/rule/(.*)$",
-      "target": "$1",
-      "service": "com.sap.health.fs",
-      "endpoint": "rulesservice",
-      "authenticationType": "xsuaa"
-    },
-    {
       "source": "^(/applications/.*)$",
       "target": "$1",
       "service": "html5-apps-repo-rt",
       "authenticationType": "xsuaa"
     }
   ],
-  "welcomeFile": "/cp.portal"
+  "welcomeFile": "/comsaphealthexamplemissionpatientlist"
 }
