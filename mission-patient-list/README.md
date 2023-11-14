@@ -30,7 +30,7 @@ All of these preqrquistes are part of the GET STARTED and BUILD phases of the mi
 3. This is one time activity 
 `cf map-route sap-health-example-mission-approuter-<blue/green> cfapps.eu10.hana.ondemand.com -n <sub-domain>-<host>`
 
-#### Interaction between UI and FHIR Server
+### Interaction between UI and FHIR Server
 
 The UI is contains static content and uses the [Open UI5-FHIR](https://github.com/SAP/openui5-fhir) to perform operations to the configured FHIR Server.
 
