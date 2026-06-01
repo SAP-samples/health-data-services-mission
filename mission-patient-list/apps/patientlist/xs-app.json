@@ -15,7 +15,7 @@
       "source": "^/core(.*)$",
       "target": "$1",
       "service": "com.sap.health.fs",
-      "endpoint": "coreservice",
+      "endpoint": "hdsf_url_for_app",
       "httpMethods": [
         "POST",
         "OPTIONS",
@@ -26,7 +26,7 @@
       "source": "/core/(.*)$",
       "target": "$1",
       "service": "com.sap.health.fs",
-      "endpoint": "coreservice",
+      "endpoint": "hdsf_url_for_app",
       "authenticationType": "xsuaa"
     },
     {
