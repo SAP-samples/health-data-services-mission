@@ -3,10 +3,10 @@
 	"version": "1.0.0",
 	"description": "Node.js based application router service for example application",
 	"engines": {
-		"node": "^20.0.0"
+		"node": "^22.0.0"
 	},
 	"dependencies": {
-		"@sap/approuter": "16.0.2"
+		"@sap/approuter": "21.4.0"
 	},
 	"scripts": {
 		"start": "node node_modules/@sap/approuter/approuter.js"
