@@ -1,7 +1,7 @@
 _schema-version: "3.1.0"
 ID: sap-health-example-mission
 description: SAP Health Example for Mission
-version: 5.0.0
+version: 6.0.0
 parameters:
   suffix: default
   deploy_mode: html5-repo
@@ -28,6 +28,7 @@ modules:
       UI_HOST: ${UI_HOST}
       UI_DOMAIN: ${UI_DOMAIN}
       TENANT_HOST_PATTERN: "^(.*)-${UI_HOST}.${UI_DOMAIN}"
+      CHECK_X_FORWARDED_HOST_IN_LOGIN_CALLBACK: true
     requires:
       - name: sap-health-example-mission-html5-rt
       - name: sap-health-example-mission-uaa
@@ -67,9 +68,31 @@ resources:
       service: xsuaa
       service-plan: broker
       shared: true
-      path: security/xs-security.json
       config:
         xsappname: sap-health-example-mission-${space}
+        tenant-mode: shared
+        scopes:
+          - name: $XSAPPNAME.Callback
+            description: With this scope set, the callbacks for tenant onboarding, offboarding and getDependencies can be called.
+            grant-as-authority-to-apps:
+              - $XSAPPNAME(application,sap-provisioning,tenant-onboarding)
+          - name: uaa.user
+            description: This scope is used for token exchange
+        authorities:
+          - $XSAPPNAME.Callback
+        oauth2-configuration:
+          redirect-uris:
+            - https://*-${org}-${space}.${domain}/**
+            - https://${org}-${space}.${domain}/**
+        role-templates:
+          - name: MultitenancyCallbackRoleTemplate
+            description: Call callback-services of applications
+            scope-references:
+              - $XSAPPNAME.Callback
+          - name: UserRoleTemplate
+            description: For token exchange
+            scope-references:
+              - uaa.user
 
   - name: sap-health-example-mission-html5-rt
     parameters:
@@ -87,5 +110,3 @@ resources:
 
   - name: new-health
     type: org.cloudfoundry.existing-service
-
-
